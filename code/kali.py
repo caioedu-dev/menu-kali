@@ -1,4 +1,8 @@
 import random
+import platform
+import socket
+import os
+import shutil
 class MenuKali:
     def __init__(self):
         self.largura = 40
@@ -71,8 +75,30 @@ class AnalisadordeSenha:
              print("Senha fraca! Por segurança, utilize no mínimo 12 caracteres.")
 class Maquina:
    def veja_maquina(self):
-       
+       print()
+       print('========= INFORMAÇÕES DO SISTEMA =========')
+       print()
+       print('Sistema Operacional:')
+       print(platform.system())
+       print()
+       print('Versão:')
+       print(platform.freedesktop_os_release()["PRETTY_NAME"])
+       print()
+       print('Processador:')
+       print(platform.processor())
+       print()
+       print('IP local:')
+       print(socket.gethostbyname(socket.gethostbyname('caio-dev')))
+       print()
+       print('Espaço livre:')
+       print()
+       total, usado, livre = shutil.disk_usage("/")
 
+       print(f"Total: {total // (1024**3)} GB")
+       print(f"Usado: {usado // (1024**3)} GB")
+       print(f"Livre: {livre // (1024**3)} GB")
+       print()
+       print('===========================================')
         
     
 
@@ -99,6 +125,7 @@ class Maquina:
 app = MenuKali()
 gerador = GeradorSenha()
 senha = AnalisadordeSenha()
+maquina= Maquina()
 while True:
     app.menu()
     print()
@@ -113,6 +140,8 @@ while True:
         senha.pedir_senha()
         senha.analisador_senha()
         input("\nPressione ENTER para voltar ao menu...")
-
+    elif opcao == '3':
+        maquina.veja_maquina()
+        input("\nPressione ENTER para voltar ao menu...")
 
        
