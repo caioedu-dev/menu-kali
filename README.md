@@ -1,2 +1,4 @@
-# menu-kali
- CyberGuard é uma ferramenta de segurança desenvolvida em Python com foco em aprendizado de cibersegurança, redes e programação orientada a objetos. O sistema reúne funcionalidades para análise de senhas, verificação de integridade de arquivos, informações de sistema e ferramentas básicas de diagnóstico de rede.
+## menu-kali
+CyberGuard é uma ferramenta de segurança desenvolvida em Python com o objetivo de auxiliar usuários na análise e organização do seu computador. O sistema reúne recursos para criação de senhas seguras, avaliação de vulnerabilidades básicas, organização de arquivos e monitoramento de informações do sistema.
+
+O projeto foi desenvolvido utilizando Programação Orientada a Objetos (POO), explorando conceitos como classes, métodos, organização de código e uso de bibliotecas nativas do Python.
