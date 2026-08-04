@@ -92,8 +92,6 @@ class Maquina:
        print('IP local:')
        print(socket.gethostbyname(socket.gethostbyname('caio-dev')))
        print()
-       print('Espaço livre:')
-       print()
        print('CPU:')
        with open("/proc/cpuinfo", "r") as arquivo:
         for linha in arquivo:
@@ -101,6 +99,7 @@ class Maquina:
                print(linha.split(":")[1].strip())
                break
        print()
+       print('Espaço livre:')
        total, usado, livre = shutil.disk_usage("/")
 
        print(f"Total: {total // (1024**3)} GB")
@@ -111,7 +110,9 @@ class Maquina:
 class Seguranca:
     def verificao_de_seguranca(self):
         print()
-        print('O menu Kali possui uam ferramenta de análise online para verificar possíveis problemas de segurança.')
+        print('[ == ANALISADOR DE ARQUIVOS == ]')
+        print()
+        print('O Menu Kali possui uam ferramenta de análise online para verificar possíveis problemas de segurança.')
         print('Você será redirecinado para um serviço especializado que realizar a um teste mais completo.')
         print()
         print('NÃO ENVIE ARQUIVOS CONFIDENCIAIS.')
@@ -120,7 +121,7 @@ class Seguranca:
         if self.opcao == 's'.lower():
             webbrowser.open("https://virusscan.jotti.org/pt-br")
         else:
-            print('OK! vc não será redirecionado.')
+            print('OK! vc não será redirecionado. Volte ao menu!')
         
         
 
