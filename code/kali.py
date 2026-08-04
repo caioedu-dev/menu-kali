@@ -3,6 +3,8 @@ import platform
 import socket
 import os
 import shutil
+import tempfile
+import webbrowser
 class MenuKali:
     def __init__(self):
         self.largura = 40
@@ -16,7 +18,7 @@ class MenuKali:
         print('[ 2 ] Analisar Força da Senha')
         print('[ 3 ] Ver Informações Da Máquina')
         print('[ 4 ] Organizador De Arquivos')
-        print('[ 5 ] Verificação De Segurança')
+        print('[ 5 ] Analisador De Arquivos Suspeitos')
         print('[ 6 ] Histórico De Ações')
         print('[ 7 ] Sair')
 class GeradorSenha:
@@ -92,6 +94,13 @@ class Maquina:
        print()
        print('Espaço livre:')
        print()
+       print('CPU:')
+       with open("/proc/cpuinfo", "r") as arquivo:
+        for linha in arquivo:
+            if "model name" in linha:
+               print(linha.split(":")[1].strip())
+               break
+       print()
        total, usado, livre = shutil.disk_usage("/")
 
        print(f"Total: {total // (1024**3)} GB")
@@ -99,6 +108,23 @@ class Maquina:
        print(f"Livre: {livre // (1024**3)} GB")
        print()
        print('===========================================')
+class Seguranca:
+    def verificao_de_seguranca(self):
+        print()
+        print('O menu Kali possui uam ferramenta de análise online para verificar possíveis problemas de segurança.')
+        print('Você será redirecinado para um serviço especializado que realizar a um teste mais completo.')
+        print()
+        print('NÃO ENVIE ARQUIVOS CONFIDENCIAIS.')
+        print()
+        self.opcao=input('Deseja continuar? [s/n]')
+        if self.opcao == 's'.lower():
+            webbrowser.open("https://virusscan.jotti.org/pt-br")
+        else:
+            print('OK! vc não será redirecionado.')
+        
+        
+
+        
         
     
 
@@ -126,6 +152,7 @@ app = MenuKali()
 gerador = GeradorSenha()
 senha = AnalisadordeSenha()
 maquina= Maquina()
+seguranca=Seguranca()
 while True:
     app.menu()
     print()
@@ -143,5 +170,9 @@ while True:
     elif opcao == '3':
         maquina.veja_maquina()
         input("\nPressione ENTER para voltar ao menu...")
+    elif opcao == '5':
+       seguranca.verificao_de_seguranca()
+       input("\nPressione ENTER para voltar ao menu...")
+
 
        
