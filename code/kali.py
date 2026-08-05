@@ -167,23 +167,28 @@ while True:
        gerador.mostra_senha()
        historico.adicionar()
        input("\nPressione ENTER para voltar ao menu...")
+       print()
     elif opcao == '2':
         senha.pedir_senha()
         senha.analisador_senha()
         historico.adicionar()
         input("\nPressione ENTER para voltar ao menu...")
+        print()
     elif opcao == '3':
         maquina.veja_maquina()
         historico.adicionar()
         input("\nPressione ENTER para voltar ao menu...")
+        print()
     elif opcao == '4':
        seguranca.verificao_de_seguranca()
        historico.adicionar()
        input("\nPressione ENTER para voltar ao menu...")
+       print()
     elif opcao == '5':
         print()
         historico.mostrar()
         input("\nPressione ENTER para voltar ao menu...")
+        print()
     elif opcao == '6':
         print('Obrigado por usar o Menu Kali, volte sempre.')
         historico.adicionar()
