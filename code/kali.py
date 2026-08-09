@@ -120,7 +120,7 @@ class Seguranca:
         print('Analisador de arquivos:')
         print()
         print('O Menu Kali possui uma ferramenta de análise online para verificar possíveis problemas de segurança.')
-        print('Você será redirecinado para um serviço especializado que realizar a um teste mais completo.')
+        print('Você será redirecinado para um serviço especializado que realizar a um teste mais completo')
         print()
         print('Não envie arquivos confidenciais.')
         print()
