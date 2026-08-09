@@ -51,6 +51,7 @@ class AnalisadordeSenha:
     def analisador_senha(self):
         if len(self.senha) < 12:
             print('Senha fraca! Por segurança, utilize no mínimo 12 caracteres.')
+            return
         tem_maiuscula = False
         tem_minuscula = False
         tem_numero = False
@@ -73,7 +74,11 @@ class AnalisadordeSenha:
         if tem_maiuscula and tem_minuscula and tem_numero and   tem_simbolo:
             print("Senha forte!")
         else:
-             print("Senha fraca! Por segurança, utilize no mínimo 12 caracteres.")
+             print("❌ Senha fraca! Ela deve conter:")
+             print("- Pelo menos uma letra maiúscula")
+             print("- Pelo menos uma letra minúscula")
+             print("- Pelo menos um número")
+             print("- Pelo menos um símbolo")
 class Maquina:
    def veja_maquina(self):
        print()
@@ -89,7 +94,10 @@ class Maquina:
        print(platform.processor())
        print()
        print('IP local:')
-       print(socket.gethostbyname(socket.gethostbyname()))
+       s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+       s.connect(("8.8.8.8", 80))
+       print(s.getsockname()[0])
+       s.close()
        print()
        print('CPU:')
        with open("/proc/cpuinfo", "r") as arquivo:
